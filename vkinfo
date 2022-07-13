@@ -1,0 +1,32 @@
+#!/bin/bash
+# =====================
+# VKINFO, by furryfixer
+# This informational script will help clear up the confusion about the 
+# operation of the "vkpurge" command in Void Linux
+# Make executable, and invoke with "vkinfo" 
+# If the output scrolls too far, consider "vkinfo | less"
+# =====================
+
+ls /boot/vmlinuz* > /tmp/vkclean.list
+sed -i 's/\/boot\/vmlinuz-//g' /tmp/vkclean.list
+echo "
+The following kernels are found in /boot:
+"
+cat /tmp/vkclean.list
+echo "
+The following kernel is currently running and cannot be removed:
+"
+uname -r
+echo "
+In addition, these xbps kernel packages are still installed and the
+corresponding kernel(s) will NOT be removed by vkpurge.
+"
+xbps-query --regex -s '^linux[0-9.]+-[0-9._]+' | grep -v `uname -r`
+
+echo "
+To remove the above kernel(s) with vkpurge, you must first
+REMOVE THE PACKAGES WITH \"xbps-remove\".
+Until then, only these kernels are available for vkpurge removal:
+"
+vkpurge list
+echo ""
