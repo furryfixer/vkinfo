@@ -1,18 +1,18 @@
 #!/bin/bash
 # =====================
-# VKINFO, by furryfixer
-# This informational script will help clear up the confusion about the 
-# operation of the "vkpurge" command in Void Linux
-# Make executable, and invoke with "vkinfo" 
+# VKINFO (void kernel info), by furryfixer
+# Script written for Void Linux, which enumerates kernels found
+# in /boot, and then identifies which kernels can be removed by
+# the "vkpurge" command. Make executable, and invoke with "vkinfo" 
 # If the output scrolls too far, consider "vkinfo | less"
 # =====================
 
-ls /boot/vmlinuz* > /tmp/vkclean.list
-sed -i 's/\/boot\/vmlinuz-//g' /tmp/vkclean.list
+ls /boot/vmlinuz* > /tmp/vkinfo.list
+sed -i 's/\/boot\/vmlinuz-//g' /tmp/vkinfo.list
 echo "
 The following kernels are found in /boot:
 "
-cat /tmp/vkclean.list
+cat /tmp/vkinfo.list
 echo "
 The following kernel is currently running and cannot be removed:
 "
