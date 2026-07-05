@@ -1,2 +1,2 @@
 theme: jekyll-theme-cayman
-include: [google635d87da5f79d76b.html]
+include: [google635d87da5f79d76b.html, sitemap.xml, robots.txt]
