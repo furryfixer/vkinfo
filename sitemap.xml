@@ -1,8 +1,3 @@
----
-layout: nil
-title : "Sitemap"
-sitemap_exclude: y
----
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
 <urlset
